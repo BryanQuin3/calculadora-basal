@@ -5,6 +5,7 @@ body {
   display: grid;
   min-height: 100vh;
   place-items: center;
+  margin: 0;
 }
 
 h1 {
@@ -55,6 +56,7 @@ button:active {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin-bottom: 25px;
 }
 
 #calculadora {
@@ -82,8 +84,88 @@ button:active {
 
 .resultado {
   color: #0a81d1;
-  font-weight: bold;
-  font-size: 25px;
+  font-weight: 600;
+  font-size: 18px;
   margin-bottom: 5px;
   display: none;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  margin: 15px 0;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  border: 2px solid #414141;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  left: 0.2em;
+  bottom: 0.2em;
+  background-color: rgb(0, 0, 0);
+  border-radius: inherit;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.switch input:checked + .slider {
+  border: 2px solid #eee;
+}
+.switch input:checked + .slider::before {
+  background-color: #ccc;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.5em);
+}
+
+/* Define los estilos para el tema oscuro en CSS */
+.dark {
+  background: #333;
+  color: #ccc;
+}
+
+.dark #calculadora {
+  background: #222;
+  color: #ccc;
+}
+
+.dark #detalle {
+  background: #121212;
+  color: #ccc;
+}
+
+.dark #calcular {
+  background: #121212;
+  color: #ccc;
+}
+
+.dark #calcular:hover {
+  border: 1px solid #eee;
+}
+
+.dark #error,
+.dark .resultado {
+  color: #ccc;
 }
